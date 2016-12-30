@@ -1,0 +1,67 @@
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+
+<AnchorPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml"
+            style="-fx-background-color: transparent;">
+    <GridPane AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="10"
+              AnchorPane.bottomAnchor="10"
+              style="-fx-background-color: #009688; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, black, 10, 0, 0, 0)">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints/>
+        </rowConstraints>
+
+        <HBox alignment="CENTER_RIGHT" onMousePressed="#mousePressed" onMouseDragged="#mouseDragged">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <ImageView fitWidth="32" fitHeight="32">
+                    <HBox.margin>
+                        <Insets left="10"/>
+                    </HBox.margin>
+                    <Image url="/sample/chat.png"/>
+                </ImageView>
+                <Label text="Chat App" style="-fx-font-weight: bold;">
+                    <HBox.margin>
+                        <Insets left="20"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <JFXButton text="🗕" style="-fx-font-size: 20;" onAction="#minimizeWindow"/>
+            <JFXButton text="✖" style="-fx-font-size: 20;" onAction="#closeWindow"/>
+        </HBox>
+
+        <HBox alignment="CENTER_RIGHT" GridPane.rowIndex="1"
+              style="-fx-background-color: #e0e0e0; -fx-border-color: #bdbdbd; -fx-border-width: 0 0 1 0;">
+            <JFXTextField fx:id="ipText" prefHeight="40" HBox.hgrow="ALWAYS" text="127.0.0.1" promptText="IP Address"
+                          style="-fx-font-size: 24; -fx-text-fill: black;"/>
+            <JFXButton text="⚒" prefHeight="40" style="-fx-font-size: 28; -fx-text-fill: black;"/>
+        </HBox>
+
+        <ScrollPane fx:id="con" fitToHeight="true" fitToWidth="true" GridPane.rowIndex="2" styleClass="edge-to-edge"
+                    onMouseClicked="#showChildren"/>
+
+        <HBox alignment="CENTER" GridPane.rowIndex="3"
+              style="-fx-background-color: #e0e0e0;  -fx-border-color: #bdbdbd; -fx-border-width: 1 0 0 0; -fx-background-radius: 0 0 10 10;">
+            <JFXTextField fx:id="messageText" style="-fx-font-size: 24;" promptText="Message" HBox.hgrow="SOMETIMES"
+                          prefHeight="40" onAction="#sendMessage"/>
+            <JFXButton text="✉" style="-fx-font-size: 28;" prefHeight="40" onAction="#sendMessage"/>
+        </HBox>
+    </GridPane>
+
+</AnchorPane>

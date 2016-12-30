@@ -1,0 +1,12 @@
+#con{
+    -fx-base: transparent;
+    -fx-background-color: #EEEAAA;
+}
+
+#ipText{
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.edge-to-edge {
+}
