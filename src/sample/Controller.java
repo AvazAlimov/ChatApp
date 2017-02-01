@@ -53,7 +53,6 @@ public class Controller implements Initializable {
             return;
 
         InetAddress address = InetAddress.getByName(ipText.getText());
-
         DatagramPacket packet = new DatagramPacket(message.getBytes(), message.getBytes().length, address, 4444);
         DatagramSocket datagramSocket = new DatagramSocket();
 
